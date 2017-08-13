@@ -9,7 +9,11 @@ var router = express.Router();
 
 // setup all the routes for the app
 router.route('/budget/:id').get(function(req, res) {
-    budgetController.retrieveBudget(req, res)
+    budgetController.retrieveBudget(req, res);
+});
+
+router.route('/stock/:ticker').get(function(req, res) {
+   budgetController.retrieveStockData(req, res);
 });
 
 // expose the router
