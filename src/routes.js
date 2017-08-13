@@ -3,6 +3,7 @@ var express = require('express');
 
 // bring in all controllers here
 var budgetController = require('./controller/budgetController');
+var stockController = require('./controller/stockController');
 
 // init the router
 var router = express.Router();
@@ -12,8 +13,8 @@ router.route('/budget/:id').get(function(req, res) {
     budgetController.retrieveBudget(req, res);
 });
 
-router.route('/stock/:ticker').get(function(req, res) {
-   budgetController.retrieveStockData(req, res);
+router.route('/stock/price').get(function(req, res) {
+   stockController.retrieveStockData(req, res);
 });
 
 // expose the router

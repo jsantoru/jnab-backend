@@ -1,6 +1,5 @@
 // import the service to work with the budget
 var budgetService = require('../service/budgetService');
-var stockService = require('../service/stockService');
 
 /**
  * Retrieve the budget via the service.
@@ -16,9 +15,4 @@ module.exports.retrieveBudget = function(req, res) {
 
     res.set('Content-Type', 'application/json');
     res.send(budget);
-};
-
-module.exports.retrieveStockData = function(req, res) {
-    var ticker = req.params.ticker;
-    stockService.retrieveStockPrice(ticker, res);
 };
