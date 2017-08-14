@@ -9,7 +9,7 @@ var URL_GET_STOCK_DAILY_STATS = "https://www.alphavantage.co/query?apikey=" + co
  * @param ticker
  * @param res
  */
-module.exports.retrieveStockPrice = function(ticker, res) {
+module.exports.retrieveStockPrice = function(ticker, res, callback) {
     var requestObject =
         {
             uri: URL_GET_STOCK_DAILY_STATS + ticker,
@@ -19,9 +19,7 @@ module.exports.retrieveStockPrice = function(ticker, res) {
     // execute the get
     rp(requestObject)
         .then(function(data) {
-            var mostRecent = parseStockData(data);
-            res.set('Content-Type', 'application/json');
-            res.send(mostRecent);
+            callback(parseStockData(data), res);
         })
         .catch(function(err) {
             console.log("error:", err);
