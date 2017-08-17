@@ -1,9 +1,11 @@
 // import express and the app's custom routes
 var express = require('express');
+var cors = require('cors');
 var routes = require('./routes');
 
 // init the app and set the routes
 var app = express();
+app.use(cors());
 app.use('/', routes.router);
 
 // start the app server
