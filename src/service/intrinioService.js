@@ -1,9 +1,7 @@
 var config = require('../../conf/config');
 var intrinio = require('intrinio-client')(config.intrinioUser, config.intrinioPass);
 
-var genericResponseHandler = function(data, response) {
-
-};
+var intrinioHttpDao = require('../httpDao/intrinioHttpDao');
 
 /**
  * http://docs.intrinio.com/#companies
@@ -48,4 +46,12 @@ module.exports.getDividendYield = function(ticker, callback) {
                 callback(null, data);
             }
         });
+};
+
+module.exports.queryForCompany = function(queryString, callback) {
+
+    // TODO: define service callback to parse the raw response
+    // TODO: then pass refined data back to the controller callback
+
+    intrinioHttpDao.executeGet("/companies?query=" + queryString, callback);
 };

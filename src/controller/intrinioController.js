@@ -35,3 +35,14 @@ module.exports.retrieveDividendYield = function(req, res) {
 
     intrinioService.getDividendYield(ticker, callback);
 };
+
+module.exports.queryForCompany = function(queryString, res) {
+    console.log(queryString);
+
+    var callback = function(err, data) {
+        res.set('Content-Type', 'application/json');
+        res.send(data);
+    };
+
+    intrinioService.queryForCompany(queryString, callback);
+};

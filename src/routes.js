@@ -42,5 +42,10 @@ router.route('/stock/dividend').get(function(req, res) {
     intrinioController.retrieveDividendYield(req, res);
 });
 
+router.route('/stock/query').get(function(req, res) {
+    var queryString = req.query.query;
+    intrinioController.queryForCompany(queryString, res);
+});
+
 // expose the router
 module.exports.router = router;
