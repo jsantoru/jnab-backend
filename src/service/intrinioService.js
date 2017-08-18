@@ -21,8 +21,8 @@ module.exports.getCompanyInfo = function(ticker, callback) {
 module.exports.getCurrentPrice = function(ticker, callback) {
     this.getPrices(ticker, function(err, data) {
         if(!err) {
-            var price = data.data[0].close;
-            var responseObject = {price:price};
+            var current = data.data[0];
+            var responseObject = {date: current.date, price:current.close};
             callback(null, responseObject);
         }
         else {
