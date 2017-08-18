@@ -4,7 +4,7 @@ var intrinioService = require('../service/intrinioService');
 module.exports.retrieveStockInfo = function(ticker, res) {
     console.log(ticker);
 
-    intrinioService.getByTicker(ticker, function(err, data) {
+    intrinioService.getCompanyInfo(ticker, function(err, data) {
         res.send(data);
     });
 };
