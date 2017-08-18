@@ -9,6 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "cors": "^2.8.4",
+    "intrinio-client": "0.0.5",
     "request": "^2.81.0",
     "request-promise": "^4.2.1"
   }
