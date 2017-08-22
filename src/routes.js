@@ -3,7 +3,6 @@ var express = require('express');
 
 // bring in all controllers here
 var budgetController = require('./controller/budgetController');
-var stockController = require('./controller/stockController');
 var intrinioController = require('./controller/intrinioController');
 
 // init the router

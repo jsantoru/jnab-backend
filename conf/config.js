@@ -1,10 +1,17 @@
-var apikeyAlphavantage = require('./apikey-alphavantage');
-var userpassIntrinio = require('./userpass-intrinio');
+var privateConfig = require('./private-config');
 
 var config = {};
-config.apikeyAlphavantage = apikeyAlphavantage;
+config.app = {
+    apikey: privateConfig.app.apikey
+};
 
-config.intrinioUser = userpassIntrinio.user;
-config.intrinioPass = userpassIntrinio.pass;
+config.alphavantage = {
+    apikey: privateConfig.alphavantage.apikey
+};
+
+config.intrinio = {
+    user: privateConfig.intrinio.user,
+    pass: privateConfig.intrinio.pass
+};
 
 module.exports = config;
