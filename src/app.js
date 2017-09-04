@@ -5,14 +5,16 @@ var routes = require('./routes');
 var config = require('../conf/config');
 var greenlock = require('greenlock-express');
 
-// init the app and set the routes
+// init the express app
 var app = express();
+
+// use cors to avoid cross-domain issues
 app.use(cors());
 
-// serve the frontend
-app.use('/jnab', express.static('public'));
+// serve the frontend at /jnab
+app.use('/jnab', express.static('web/jnab'));
 
-// apikey is required for all calls
+// apikey is required for all api calls
 app.use(function(req, res, next) {
     if(req.query.apikey == config.app.apikey) {
         next();
@@ -31,12 +33,12 @@ app.use(function(req, res, next) {
 // use the routes defined in the router
 app.use('/api/', routes.router);
 
-// TODO: use https
 // start the app server
 app.listen(6001, function () {
 	console.log('listening on port 6001...');
 });
 
+// TODO: use https
 /*greenlock.create({
     server: 'staging',
     email: 'john.doe@example.com',

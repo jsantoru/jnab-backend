@@ -2,7 +2,7 @@
   "name": "jnab-backend",
   "version": "1.0.0",
   "description": "jnab backend in node",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,6 +11,7 @@
   "dependencies": {
     "cors": "^2.8.4",
     "express": "^4.15.4",
+    "greenlock-express": "^2.0.11",
     "intrinio-client": "0.0.5",
     "request": "^2.81.0",
     "request-promise": "^4.2.1"
