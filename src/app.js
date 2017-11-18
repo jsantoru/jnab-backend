@@ -13,6 +13,7 @@ app.use(cors());
 
 // serve the frontend at /jnab
 app.use('/jnab', express.static('web/jnab'));
+app.use('/magicmirror', express.static('web/magicmirror'));
 
 // apikey is required for all api calls
 app.use(function(req, res, next) {
